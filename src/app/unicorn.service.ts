@@ -10,4 +10,16 @@ export class UnicornService {
 
   }
 
+  create() {
+
+  }
+
+  fetchLocalStorage() {
+    const ls = localStorage.getItem('unicorns');
+    console.log(ls);
+  }
+
+  find(id: number): Unicorn {
+    return null;
+  }
 }
