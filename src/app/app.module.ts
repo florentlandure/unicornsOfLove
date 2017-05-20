@@ -12,6 +12,7 @@ import { MatingPageComponent } from './mating-page/mating-page.component';
 import { CardComponent } from './card/card.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CreatePageComponent } from './create-page/create-page.component';
+import { ReturnComponent } from './return/return.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CreatePageComponent } from './create-page/create-page.component';
     MatingPageComponent,
     CardComponent,
     NotFoundComponent,
-    CreatePageComponent
+    CreatePageComponent,
+    ReturnComponent
   ],
   imports: [
     AppRoutingModule,
