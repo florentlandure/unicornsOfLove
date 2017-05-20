@@ -1,9 +1,10 @@
-<h1>
-  <a href="/" class="title">{{title}}</a>
-</h1>
-<nav>
-  <a routerLink="/" class="button">Home</a>
-  <a routerLink="/create" class="button">Create unicorn</a>
-  <a routerLink="/mate" class="button">Mate 2 unicorns</a>
-</nav>
-<router-outlet></router-outlet>
+<div class="wrapper">
+  <h1 class="title">
+    <a href="/">{{title}}</a>
+  </h1>
+  <nav>
+    <a routerLink="/create" class="button">Create unicorn</a>
+    <a routerLink="/mate" class="button">Mate 2 unicorns</a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import './assets/styles/_variables.scss';
+html {
+  font-size: 10px;
+}
 html,
 body {
   margin: 0;
@@ -9,6 +12,7 @@ body {
 body {
   color: $dark;
   font-family: $main-font;
+  font-size: 1.8rem;
 }
 a {
   color: inherit;
