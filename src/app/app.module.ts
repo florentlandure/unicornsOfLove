@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { CreateService } from './create.service';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -31,7 +32,7 @@ import { ReturnComponent } from './return/return.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [CreateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
