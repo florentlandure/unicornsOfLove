@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
-export class CreateService {
+import { Unicorn } from './models/Unicorn';
 
-  constructor() { }
+@Injectable()
+export class UnicornService {
+  unicorns: Unicorn[];
+
+  constructor() {
+
+  }
 
 }
