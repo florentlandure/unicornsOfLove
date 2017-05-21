@@ -5,6 +5,7 @@
   <h1 class="title">{{unicorn.name}} <span *ngIf="isMale" class="fa fa-mars"></span><span *ngIf="isFemale" class="fa fa-venus"></span><span *ngIf="isOther" class="fa fa-transgender"></span></h1>
   <p class="age">{{unicorn.age}} yo</p>
   <p class="actions">
+    <span class="more-info"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></span>
     <span class="delete" (click)="deleteUnicorn(index)"><i class="fa fa-ban fa-2x" aria-hidden="true"></i></span>
   </p>
 </div>
