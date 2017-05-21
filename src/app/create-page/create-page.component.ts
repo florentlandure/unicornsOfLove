@@ -13,17 +13,22 @@ export class CreatePageComponent implements OnInit {
   name = '';
   color = '';
   gender = '';
-  age = 0;
+  age = 1;
+  error = {
+    name: false,
+    color: false,
+    age: false,
+    gender: false
+  };
 
   constructor(private unicornService: UnicornService, private router: Router) { }
 
   ngOnInit() {
-    //localStorage.setItem('unicorns', JSON.stringify([]));
     console.log(this.unicornService.fetchLocalStorage());
   }
 
   onSubmit() {
-    if (this.name.trim() !== '' && this.color.trim() !== '' && this.gender.trim() && this.age >= 0) {
+    if (this.name.trim() !== '' && this.color.trim() !== '' && this.gender.trim() && this.age >= 1) {
       // Store new unicorn locally
       this.color = this.color.replace('#', '');
       this.unicornService.create(new Unicorn(this.name, this.color, this.gender, this.age));
@@ -36,6 +41,20 @@ export class CreatePageComponent implements OnInit {
 
       // Redirect to home page
       this.router.navigateByUrl('/');
+    }
+    else {
+      if(this.name.trim() === '') {
+        this.error.name = true;
+      }
+      if(this.color.trim() === '') {
+        this.error.color = true;
+      }
+      if(this.gender.trim() === '') {
+        this.error.gender = true;
+      }
+      if(this.age < 1) {
+        this.error.age = true;
+      }
     }
   }
 

@@ -1,30 +1,34 @@
 <app-return></app-return>
-<form (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="name">Name</label>
+<form (ngSubmit)="onSubmit()" class="form">
+  <div class="form-group" id="name-group">
+    <h2 class="title">Name <span class="required">*</span></h2>
     <input type="text" name="name" id="name" [(ngModel)]="name">
+    <span class="error" *ngIf="error.name">Please enter a name</span>
   </div>
   <div class="form-group">
-    <label for="age">Age</label>
+    <h2 class="title">Age <span class="required">*</span></h2>
     <input type="number" name="age" min="1" id="age" [(ngModel)]="age">
+    <span class="error" *ngIf="error.age">Min age is 1</span>
   </div>
   <div class="form-group">
-    <label>
-      Male
-      <input type="radio" name="gender" value="M" [(ngModel)]="gender">
-    </label>
-    <label>
-      Female
-      <input type="radio" name="gender" value="F" [(ngModel)]="gender">
-    </label>
-    <label>
-      Other
-      <input type="radio" name="gender" value="O" [(ngModel)]="gender">
-    </label>
+    <h2 class="title">Gender <span class="required">*</span></h2>
+    <p>
+      <input type="radio" name="gender" value="M" [(ngModel)]="gender"> Male
+    </p>
+    <p>
+      <input type="radio" name="gender" value="F" [(ngModel)]="gender"> Female
+    </p>
+    <p>
+      <input type="radio" name="gender" value="O" [(ngModel)]="gender"> Other
+    </p>
+    <span class="error" *ngIf="error.gender">Please select a gender</span>
   </div>
   <div class="form-group">
-    <label for="color"></label>
+    <h2 class="title">Color <span class="required">*</span></h2>
     <input type="color" name="color" [(ngModel)]="color">
+    <span class="error" *ngIf="error.color">Please select a color</span>
   </div>
-  <button type="submit">Create</button>
+  <div class="form-group" id="submit">
+    <button type="submit" class="button">Create</button>
+  </div>
 </form>
