@@ -10,13 +10,25 @@ import { UnicornService } from 'app/unicorn.service';
 })
 export class ProfilePageComponent implements OnInit {
   unicorn: Unicorn;
+  hasParents: boolean;
+  parents: Unicorn[] = [];
 
   constructor(private activatedRoute: ActivatedRoute, private unicornService: UnicornService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
+      // Get the informations of the current unicorn
       this.unicorn = this.unicornService.unicorns[params.id];
+      console.log(this.unicorn);
+      // Get the informations of its parents
+      this.hasParents = (this.unicorn.parents.length > 0);
+      this.fetchParents();
     });
   }
 
+  private fetchParents() {
+    this.unicorn.parents.forEach(id => {
+      this.parents.push(this.unicornService.unicorns[id]);
+    });
+  }
 }

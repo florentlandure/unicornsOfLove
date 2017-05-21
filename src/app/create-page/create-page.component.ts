@@ -31,16 +31,9 @@ export class CreatePageComponent implements OnInit {
       this.color = this.color.replace('#', '');
       this.unicornService.create(new Unicorn(this.name, this.color, this.gender, this.age));
 
-      // Reset input data
-      this.name = '';
-      this.color = '';
-      this.gender = '';
-      this.age = 0;
-
       // Redirect to home page
       this.router.navigateByUrl('/');
-    }
-    else {
+    } else {
       if(this.name.trim() === '') {
         this.error.name = true;
       }

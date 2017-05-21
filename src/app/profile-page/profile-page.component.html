@@ -9,8 +9,18 @@
         <app-gender [gender]="unicorn.gender"></app-gender>
       </h1>
       <ul>
-        <li>{{unicorn.age}} yo</li>
+        <li>Age: {{unicorn.age}} yo</li>
         <li>Color: #{{unicorn.color}}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="body">
+    <div *ngIf="hasParents" class="parents">
+      <h2 class="title">Parents</h2>
+      <ul class="parent-list">
+        <li *ngFor="let parent of parents">
+          <app-card [unicorn]="parent"></app-card>
+        </li>
       </ul>
     </div>
   </div>

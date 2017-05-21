@@ -27,7 +27,7 @@ export class UnicornService {
 
     if (ls !== null && ls.length > 0) {
       JSON.parse(ls).forEach(u => {
-        unis.push(new Unicorn(u.name, u.color, u.gender, u.age));
+        unis.push(new Unicorn(u.name, u.color, u.gender, u.age, u.parents));
       });
     }
     return unis;
@@ -43,7 +43,8 @@ export class UnicornService {
         name: u.name,
         gender: u.gender,
         color: u.color,
-        age: u.age
+        age: u.age,
+        parents: u.parents
       });
     });
 

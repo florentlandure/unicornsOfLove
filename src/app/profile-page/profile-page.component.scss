@@ -25,3 +25,22 @@
     width: 100%;
   }
 }
+.parents {
+  & .card:hover {
+    & .actions {
+      display: none;
+    }
+  }
+}
+.parent-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  &>li {
+    width: 20%;
+    padding: 20px;
+  }
+}
