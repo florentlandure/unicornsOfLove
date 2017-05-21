@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UnicornService } from './../unicorn.service';
+import { Unicorn } from './../models/Unicorn';
 
 @Component({
   selector: 'app-create-page',
@@ -8,9 +9,28 @@ import { UnicornService } from './../unicorn.service';
 })
 export class CreatePageComponent implements OnInit {
 
-  constructor() { }
+  name = '';
+  color = 'FFFFFF';
+  gender = '';
+  age = 0;
+
+  constructor(private unicornService: UnicornService) { }
 
   ngOnInit() {
+    console.log(this.unicornService.fetchLocalStorage());
+  }
+
+  onSubmit() {
+    if (this.name.trim() !== '' && this.color.trim() !== '' && this.gender.trim() && this.age >= 0) {
+      // Store new unicorn locally
+      this.unicornService.create(new Unicorn(this.name, this.color, this.gender, this.age));
+
+      // Reset input data
+      this.name = '';
+      this.color = '';
+      this.gender = '';
+      this.age = 0;
+    }
   }
 
 }
