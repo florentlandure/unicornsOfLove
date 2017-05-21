@@ -14,7 +14,7 @@
       border-color: $main-pink;
     }
     & .actions {
-      display: block;
+      display: flex;
     }
   }
 }
@@ -39,7 +39,6 @@
   margin: 0;
 }
 .actions {
-  display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -63,4 +62,13 @@
 .more-info:hover {
   color: $main-pink;
   cursor: pointer;
+  position: relative;
+  &:after {
+    content: 'Info';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadein 1s;
+  }
 }
