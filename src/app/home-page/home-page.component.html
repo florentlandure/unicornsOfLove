@@ -3,7 +3,8 @@
   <a routerLink="/mate" class="button">Mate 2 unicorns</a>
 </nav>
 <ul class="unicorn-list">
-  <li *ngFor="let unicorn of unicorns">
-    <app-card [unicorn]="unicorn"></app-card>
+  <h3 *ngIf="noUnicorn">All unicorns are gone...</h3>
+  <li *ngFor="let unicorn of unicorns; let i = index">
+    <app-card (delete)="deleteUnicorn($event)" [unicorn]="unicorn" [index]="i"></app-card>
   </li>
 </ul>

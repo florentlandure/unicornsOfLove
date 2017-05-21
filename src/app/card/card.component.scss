@@ -1,0 +1,49 @@
+@import '../../assets/styles/variables';
+.card {
+  cursor: pointer;
+  text-align: center;
+  border: 2px solid $light;
+  padding: 20px 10px;
+  position: relative;
+  &:hover {
+    & .title {
+      color: $main-pink;
+    }
+    & .picture {
+      border-color: $main-pink;
+    }
+    & .actions {
+      display: block;
+    }
+  }
+}
+.picture {
+  margin: auto;
+  width: 120px;
+  height: 120px;
+  border: 10px solid $main-pink;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+  &>img {
+    width: 100%;
+  }
+}
+.title {
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+.age {
+  margin: 0;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  display: none;
+}
+.delete {
+  color: red;
+}

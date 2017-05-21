@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UnicornService } from './../unicorn.service';
 import { Unicorn } from './../models/Unicorn';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-page',
@@ -10,11 +11,11 @@ import { Unicorn } from './../models/Unicorn';
 export class CreatePageComponent implements OnInit {
 
   name = '';
-  color = 'FFFFFF';
+  color = '';
   gender = '';
   age = 0;
 
-  constructor(private unicornService: UnicornService) { }
+  constructor(private unicornService: UnicornService, private router: Router) { }
 
   ngOnInit() {
     //localStorage.setItem('unicorns', JSON.stringify([]));
@@ -31,6 +32,9 @@ export class CreatePageComponent implements OnInit {
       this.color = '';
       this.gender = '';
       this.age = 0;
+
+      // Redirect to home page
+      this.router.navigateByUrl('/');
     }
   }
 

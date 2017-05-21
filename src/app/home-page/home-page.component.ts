@@ -9,11 +9,16 @@ import { Unicorn } from '../models/Unicorn';
 })
 export class HomePageComponent implements OnInit {
   unicorns: Unicorn[];
+  noUnicorn: boolean;
 
   constructor(private unicornService: UnicornService) { }
 
   ngOnInit() {
     this.unicorns = this.unicornService.unicorns;
+    this.noUnicorn = (this.unicorns.length <= 0);
   }
 
+  deleteUnicorn(event) {
+    this.unicornService.delete(event);
+  }
 }
