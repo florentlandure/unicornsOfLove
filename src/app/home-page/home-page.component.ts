@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UnicornService } from '../unicorn.service';
+import { Unicorn } from '../models/Unicorn';
 
 @Component({
   selector: 'app-home-page',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+  unicorns: Unicorn[];
 
-  constructor() { }
+  constructor(private unicornService: UnicornService) { }
 
   ngOnInit() {
+    this.unicorns = this.unicornService.unicorns;
   }
 
 }

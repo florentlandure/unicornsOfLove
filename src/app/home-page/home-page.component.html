@@ -2,6 +2,8 @@
   <a routerLink="/create" class="button">Create unicorn</a>
   <a routerLink="/mate" class="button">Mate 2 unicorns</a>
 </nav>
-<p>
-  home-page works!
-</p>
+<ul class="unicorn-list">
+  <li *ngFor="let unicorn of unicorns">
+    <app-card [unicorn]="unicorn"></app-card>
+  </li>
+</ul>
