@@ -11,15 +11,28 @@ export class UnicornService {
   }
 
   create(unicorn: Unicorn) {
+    this.fetchLocalStorage();
     this.unicorns.push(unicorn);
     this.saveLocalStorage(this.unicorns);
+  }
+
+  delete(id: number) {
+    this.fetchLocalStorage();
+    this.unicorns.splice(id, 1);
+    this.saveLocalStorage(this.unicorns);
+    /*this.unicorns.findIndex(u => {
+      if (u.name === unicorn.name && u.age === unicorn.age && u.gender === unicorn.gender && u.color === unicorn.color) {
+        return true;
+      }
+      return false;
+    });*/
   }
 
   fetchLocalStorage(): Unicorn[] {
     // Check if unicorns are already stored locally
     const ls = localStorage.getItem('unicorns');
 
-    if (ls !== null) {
+    if (ls !== null && ls.length > 0) {
       const arr: Unicorn[] = JSON.parse(ls);
 
       arr.forEach(u => {
