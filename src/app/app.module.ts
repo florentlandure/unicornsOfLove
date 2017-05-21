@@ -14,6 +14,7 @@ import { CardComponent } from './card/card.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CreatePageComponent } from './create-page/create-page.component';
 import { ReturnComponent } from './return/return.component';
+import { GenderComponent } from './gender/gender.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ReturnComponent } from './return/return.component';
     CardComponent,
     NotFoundComponent,
     CreatePageComponent,
-    ReturnComponent
+    ReturnComponent,
+    GenderComponent
   ],
   imports: [
     AppRoutingModule,

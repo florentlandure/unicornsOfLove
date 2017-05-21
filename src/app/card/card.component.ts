@@ -11,17 +11,9 @@ export class CardComponent implements OnInit {
   @Input() index: number;
   @Output() delete: EventEmitter<number> = new EventEmitter<number>();
 
-  isMale: boolean;
-  isFemale: boolean;
-  isOther: boolean;
-
   constructor() { }
 
-  ngOnInit() {
-    this.isMale = (this.unicorn.gender === 'M');
-    this.isFemale = (this.unicorn.gender === 'F');
-    this.isOther = (this.unicorn.gender === 'O');
-  }
+  ngOnInit() {}
 
   deleteUnicorn(id: number) {
     this.delete.emit(id);

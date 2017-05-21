@@ -18,12 +18,6 @@ export class UnicornService {
   delete(id: number) {
     this.unicorns.splice(id, 1);
     this.saveLocalStorage(this.unicorns);
-    /*this.unicorns.findIndex(u => {
-      if (u.name === unicorn.name && u.age === unicorn.age && u.gender === unicorn.gender && u.color === unicorn.color) {
-        return true;
-      }
-      return false;
-    });*/
   }
 
   fetchLocalStorage(): Unicorn[] {

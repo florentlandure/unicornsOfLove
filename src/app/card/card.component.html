@@ -2,7 +2,9 @@
   <div class="picture" [style.border-color]="'#'+unicorn.color">
     <img src="../../assets/images/unicorn_head.png" alt="Unicorn profile picture">
   </div>
-  <h1 class="title">{{unicorn.name}} <span *ngIf="isMale" class="fa fa-mars"></span><span *ngIf="isFemale" class="fa fa-venus"></span><span *ngIf="isOther" class="fa fa-transgender"></span></h1>
+  <h1 class="title">{{unicorn.name}}
+    <app-gender [gender]="unicorn.gender"></app-gender>
+  </h1>
   <p class="age">{{unicorn.age}} yo</p>
   <p class="actions">
     <a class="more-info" routerLink="/profile/{{index}}"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>

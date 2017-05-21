@@ -23,9 +23,7 @@ export class CreatePageComponent implements OnInit {
 
   constructor(private unicornService: UnicornService, private router: Router) { }
 
-  ngOnInit() {
-    console.log(this.unicornService.fetchLocalStorage());
-  }
+  ngOnInit() {}
 
   onSubmit() {
     if (this.name.trim() !== '' && this.color.trim() !== '' && this.gender.trim() && this.age >= 1) {
