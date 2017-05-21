@@ -1,10 +1,10 @@
 @import '../../assets/styles/variables';
 .card {
-  cursor: pointer;
   text-align: center;
   border: 2px solid $light;
   padding: 20px 10px;
   position: relative;
+  background: $lighter;
   &:hover {
     & .title {
       color: $main-pink;
@@ -21,7 +21,7 @@
   margin: auto;
   width: 120px;
   height: 120px;
-  border: 10px solid $main-pink;
+  border: 10px solid;
   border-radius: 50%;
   overflow: hidden;
   padding: 10px;
@@ -46,4 +46,16 @@
 }
 .delete {
   color: red;
+  cursor: pointer;
+  position: relative;
+  &:hover {
+    &:after {
+      content: 'Delete';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: fadein 1s;
+    }
+  }
 }

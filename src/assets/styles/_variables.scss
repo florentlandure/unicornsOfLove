@@ -8,3 +8,12 @@ sans-serif;
 $main-pink: #f021ff;
 $dark: #303030;
 $light: #EEEEEE;
+$lighter: #fafafa;
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
