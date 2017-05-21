@@ -17,7 +17,7 @@ export class CreatePageComponent implements OnInit {
   constructor(private unicornService: UnicornService) { }
 
   ngOnInit() {
-    console.log(this.unicornService.unicorns);
+    //localStorage.setItem('unicorns', JSON.stringify([]));
     console.log(this.unicornService.fetchLocalStorage());
   }
 
