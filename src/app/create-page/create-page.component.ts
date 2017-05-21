@@ -25,6 +25,7 @@ export class CreatePageComponent implements OnInit {
   onSubmit() {
     if (this.name.trim() !== '' && this.color.trim() !== '' && this.gender.trim() && this.age >= 0) {
       // Store new unicorn locally
+      this.color = this.color.replace('#', '');
       this.unicornService.create(new Unicorn(this.name, this.color, this.gender, this.age));
 
       // Reset input data

@@ -1,26 +1,30 @@
 <app-return></app-return>
 <form (ngSubmit)="onSubmit()">
-  <div>
+  <div class="form-group">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" [(ngModel)]="name">
   </div>
-  <div>
+  <div class="form-group">
     <label for="age">Age</label>
     <input type="number" name="age" min="0" id="age" [(ngModel)]="age">
   </div>
-  <div>
+  <div class="form-group">
     <label>
       Male
-      <input type="radio" name="gender" id="gender" value="M" [(ngModel)]="gender">
+      <input type="radio" name="gender" value="M" [(ngModel)]="gender">
     </label>
     <label>
       Female
-      <input type="radio" name="gender" id="gender" value="F" [(ngModel)]="gender">
+      <input type="radio" name="gender" value="F" [(ngModel)]="gender">
     </label>
     <label>
       Other
-      <input type="radio" name="gender" id="gender" value="O" [(ngModel)]="gender">
+      <input type="radio" name="gender" value="O" [(ngModel)]="gender">
     </label>
+  </div>
+  <div class="form-group">
+    <label for="color"></label>
+    <input type="color" name="color" [(ngModel)]="color">
   </div>
   <button type="submit">Create</button>
 </form>
