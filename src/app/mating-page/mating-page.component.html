@@ -1,4 +1,16 @@
 <app-return></app-return>
-<p>
-  mating-page works!
-</p>
+<h3 *ngIf="noUnicorn; else mateUnicorns">You don't have enough unicorns in your herd.</h3>
+<ng-template #mateUnicorns>
+  <div class="container">
+    <div class="left">
+      <select #option (change)="selectOne(option.value)">
+      <option *ngFor="let unicorn of unicorns; let id=index" [value]="id">{{unicorn.name}}</option>
+    </select>
+    </div>
+    <div class="right">
+      <select>
+      <option *ngFor="let unicorn of unicornsLeft" value="unicorn.id">{{unicorn.name}}</option>
+    </select>
+    </div>
+  </div>
+</ng-template>
