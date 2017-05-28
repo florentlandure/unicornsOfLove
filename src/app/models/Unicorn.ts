@@ -3,14 +3,17 @@ export class Unicorn {
   color: string;
   gender: string;
   age: number;
-  parents: number[];
+  parents: Unicorn[];
+  hasChild: boolean;
+  id: number;
 
-  constructor (name: string, color: string, gender: string, age: number, parents: number[] = []) {
+  constructor (name: string, color: string, gender: string, age: number, parents: Unicorn[] = [], hasChild: boolean = false) {
     this.name = name;
     this.color = color;
     this.gender = gender;
     this.age = age;
     this.parents = parents;
+    this.hasChild = hasChild;
   }
 
   isEqualTo(unicorn: Unicorn) {

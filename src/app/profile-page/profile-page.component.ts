@@ -22,13 +22,7 @@ export class ProfilePageComponent implements OnInit {
       console.log(this.unicorn);
       // Get the informations of its parents
       this.hasParents = (this.unicorn.parents.length > 0);
-      this.fetchParents();
-    });
-  }
-
-  private fetchParents() {
-    this.unicorn.parents.forEach(id => {
-      this.parents.push(this.unicornService.unicorns[id]);
+      this.parents = this.unicorn.parents;
     });
   }
 }

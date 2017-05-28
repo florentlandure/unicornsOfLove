@@ -7,9 +7,6 @@
   position: relative;
   background: $lighter;
   &:hover {
-    & .title {
-      color: $main-pink;
-    }
     & .picture {
       border-color: $main-pink;
     }

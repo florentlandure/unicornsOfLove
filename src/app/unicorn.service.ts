@@ -12,19 +12,19 @@ export class UnicornService {
 
   create(unicorn: Unicorn) {
     this.unicorns.push(unicorn);
-    this.saveLocalStorage(this.unicorns);
+    this.saveLocalStorage();
   }
 
   delete(id: number) {
     this.unicorns.splice(id, 1);
-    this.saveLocalStorage(this.unicorns);
+    this.saveLocalStorage();
   }
 
   // Returns males and females only
   getMatableUnicorns() {
     const arr: Unicorn[] = [];
     this.unicorns.forEach(u => {
-      if (u.gender.toLowerCase() !== 'o' && u.age >= 9) {
+      if (u.gender.toLowerCase() !== 'o' && u.age >= 9 && !u.hasChild) {
         arr.push(u);
       }
     });
@@ -51,24 +51,27 @@ export class UnicornService {
 
     if (ls !== null && ls.length > 0) {
       JSON.parse(ls).forEach(u => {
-        unis.push(new Unicorn(u.name, u.color, u.gender, u.age, u.parents));
+        const tmpUni = new Unicorn(u.name, u.color, u.gender, u.age, u.parents, u.hasChild);
+        tmpUni.id = u.id;
+        unis.push(tmpUni);
       });
     }
     return unis;
   }
 
   // Store unicorns locally
-  saveLocalStorage(unicorns: Unicorn[]) {
+  saveLocalStorage() {
     const storage = [];
 
-    unicorns.forEach((u, key) => {
+    this.unicorns.forEach((u, key) => {
       storage.push({
         id: key,
         name: u.name,
         gender: u.gender,
         color: u.color,
         age: u.age,
-        parents: u.parents
+        parents: u.parents,
+        hasChild: u.hasChild
       });
     });
 

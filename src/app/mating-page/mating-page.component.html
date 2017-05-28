@@ -1,18 +1,22 @@
 <app-return></app-return>
-<h3 *ngIf="noUnicorn; else mateUnicorns">You don't have enough unicorns in your herd.</h3>
+<h3 *ngIf="noUnicorn; else mateUnicorns">You don't have enough eligible unicorns.</h3>
 <ng-template #mateUnicorns>
-  <div class="container">
-    <div class="left">
-      <select #option (change)="selectOne(option.value)">
-        <option *ngFor="let unicorn of unicorns; let id=index" [value]="id">{{unicorn.name}}</option>
-      </select>
-      <app-card [unicorn]="unicornOne" [showActions]="false"></app-card>
+  <div class="template-wrap">
+
+    <div class="container">
+      <div>
+        <select #uniOne (change)="selectOne(uniOne.value)">
+          <option *ngFor="let unicorn of unicorns; let id=index" [value]="id">{{unicorn.name}}</option>
+        </select>
+        <app-card [unicorn]="unicornOne" [showActions]="false"></app-card>
+      </div>
+      <div>
+        <select #uniTwo (change)="selectTwo(uniTwo.value)">
+          <option *ngFor="let unicorn of unicornsLeft; let id=index" [value]="id">{{unicorn.name}}</option>
+        </select>
+        <app-card [unicorn]="unicornTwo" [showActions]="false"></app-card>
+      </div>
     </div>
-    <div class="right">
-      <select>
-        <option *ngFor="let unicorn of unicornsLeft" value="unicorn.id">{{unicorn.name}}</option>
-      </select>
-      <app-card [unicorn]="unicornTwo" [showActions]="false"></app-card>
-    </div>
+    <div class="mate-button fa fa-heart fa-4x" (click)="mate()"></div>
   </div>
 </ng-template>
