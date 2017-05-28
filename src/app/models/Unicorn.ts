@@ -12,4 +12,8 @@ export class Unicorn {
     this.age = age;
     this.parents = parents;
   }
+
+  isEqualTo(unicorn: Unicorn) {
+    return (unicorn.name === this.name && unicorn.color === this.color && unicorn.age === this.age && unicorn.gender === this.gender);
+  }
 }

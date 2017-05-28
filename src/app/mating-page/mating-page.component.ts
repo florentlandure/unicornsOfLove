@@ -10,27 +10,25 @@ import { UnicornService } from 'app/unicorn.service';
 export class MatingPageComponent implements OnInit {
   unicorns: Unicorn[]; // Array of all unicorns
   unicornsLeft: Unicorn[]; // Array of unicorns left to select
-  unicornOne: number; // First unicorn selected for mating
-  unicornTwo: number; // Second unicorn selected for mating
+  unicornOne: Unicorn; // First unicorn selected for mating
+  unicornTwo: Unicorn; // Second unicorn selected for mating
   unicornOneSelected = false; // Is unicorn one selected ?
   noUnicorn: boolean; // Is the array of unicorns empty ?
 
   constructor(private unicornService: UnicornService) { }
 
   ngOnInit() {
-    this.unicorns = this.unicornService.unicorns;
+    this.unicorns = this.unicornService.getMatableUnicorns();
     this.noUnicorn = (this.unicorns.length > 1) ? false : true;
 
     if (!this.noUnicorn) {
-      this.unicornOne = 0;
-      this.unicornTwo = 1;
-      this.unicornsLeft = this.unicorns.slice(this.unicorns.findIndex(unicorn => {
-        return unicorn.isEqualTo(this.unicornOne);
-      }));
+      this.unicornOne = this.unicorns[0];
+      this.unicornTwo = this.unicorns[1];
+      this.unicornsLeft = this.unicornService.getOppositeGender(this.unicornOne);
     }
   }
   selectOne(id: number) {
-    this.unicornOne = id;
-    console.log(this.unicornOne, this.unicornTwo);
+    this.unicornOne = this.unicorns[id];
+    this.unicornsLeft = this.unicornService.getOppositeGender(this.unicornOne);
   }
 }

@@ -20,6 +20,30 @@ export class UnicornService {
     this.saveLocalStorage(this.unicorns);
   }
 
+  // Returns males and females only
+  getMatableUnicorns() {
+    const arr: Unicorn[] = [];
+    this.unicorns.forEach(u => {
+      if (u.gender.toLowerCase() !== 'o') {
+        arr.push(u);
+      }
+    });
+
+    return arr;
+  }
+
+  // Return an array of the opposite gender of unicorn (for mating)
+  getOppositeGender(uni: Unicorn) {
+    const arr: Unicorn[] = [];
+    this.unicorns.forEach(u => {
+      if (u.gender.toLowerCase() !== 'o' && u.gender.toLowerCase() !== uni.gender.toLowerCase()) {
+        arr.push(u);
+      }
+    });
+
+    return arr;
+  }
+
   fetchLocalStorage(): Unicorn[] {
     // Check if unicorns are already stored locally
     const ls = localStorage.getItem('unicorns');
