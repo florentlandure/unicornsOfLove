@@ -13,6 +13,7 @@ export class UnicornService {
   create(unicorn: Unicorn) {
     this.unicorns.push(unicorn);
     this.saveLocalStorage();
+    this.unicorns = this.fetchLocalStorage();
   }
 
   delete(id: number) {
