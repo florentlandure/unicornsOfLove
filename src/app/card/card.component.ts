@@ -8,6 +8,7 @@ import { Unicorn } from '../models/Unicorn';
 })
 export class CardComponent implements OnInit {
   @Input() unicorn: Unicorn;
+  @Input() showActions: boolean;
   @Input() index: number;
   @Output() delete: EventEmitter<number> = new EventEmitter<number>();
 

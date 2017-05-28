@@ -4,8 +4,9 @@
   &>.left,
   &>.right {
     flex: 1;
-    min-width: 400px;
+    min-width: 200px;
     position: relative;
     text-align: center;
+    padding: 0 10px;
   }
 }

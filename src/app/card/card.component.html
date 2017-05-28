@@ -5,8 +5,8 @@
   <h1 class="title">{{unicorn.name}}
     <app-gender [gender]="unicorn.gender"></app-gender>
   </h1>
-  <p class="age">{{unicorn.age}} yo</p>
-  <p class="actions">
+  <p class="age">{{unicorn.age}} rainbow<span *ngIf="unicorn.age > 1">s</span></p>
+  <p class="actions" *ngIf="showActions">
     <a class="more-info" routerLink="/profile/{{index}}"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></a>
     <span class="delete" (click)="deleteUnicorn(index)"><i class="fa fa-ban fa-2x" aria-hidden="true"></i></span>
   </p>

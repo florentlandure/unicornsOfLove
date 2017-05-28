@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Unicorn } from 'app/models/Unicorn';
 import { UnicornService } from 'app/unicorn.service';
+import { CardComponent } from 'app/card/card.component';
 
 @Component({
   selector: 'app-mating-page',
@@ -23,8 +24,8 @@ export class MatingPageComponent implements OnInit {
 
     if (!this.noUnicorn) {
       this.unicornOne = this.unicorns[0];
-      this.unicornTwo = this.unicorns[1];
       this.unicornsLeft = this.unicornService.getOppositeGender(this.unicornOne);
+      this.unicornTwo = this.unicornsLeft[0];
     }
   }
   selectOne(id: number) {
