@@ -24,7 +24,7 @@ export class UnicornService {
   getMatableUnicorns() {
     const arr: Unicorn[] = [];
     this.unicorns.forEach(u => {
-      if (u.gender.toLowerCase() !== 'o') {
+      if (u.gender.toLowerCase() !== 'o' && u.age >= 9) {
         arr.push(u);
       }
     });
@@ -35,7 +35,7 @@ export class UnicornService {
   // Return an array of the opposite gender of unicorn (for mating)
   getOppositeGender(uni: Unicorn) {
     const arr: Unicorn[] = [];
-    this.unicorns.forEach(u => {
+    this.getMatableUnicorns().forEach(u => {
       if (u.gender.toLowerCase() !== 'o' && u.gender.toLowerCase() !== uni.gender.toLowerCase()) {
         arr.push(u);
       }
