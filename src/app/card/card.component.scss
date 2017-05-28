@@ -39,15 +39,21 @@
   margin: 0;
 }
 .actions {
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-around;
   display: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  & .fa {
+    font-size: 1.5em;
+  }
 }
 .delete {
   color: red;
   cursor: pointer;
-  position: relative;
+  position: absolute;
+  right: 5px;
+  bottom: 0;
   &:hover {
     &:after {
       content: 'Delete';
@@ -59,16 +65,20 @@
     }
   }
 }
-.more-info:hover {
-  color: $main-pink;
+.more-info {
+  position: absolute;
+  left: 5px;
+  bottom: 0;
   cursor: pointer;
-  position: relative;
-  &:after {
-    content: 'Info';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: fadein 1s;
+  &:hover {
+    color: $main-pink;
+    &:after {
+      content: 'Info';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: fadein 1s;
+    }
   }
 }
