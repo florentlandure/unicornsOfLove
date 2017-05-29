@@ -1,3 +1,6 @@
+<a routerLink="/">
+  <div class="button">&larr;</div>
+</a>
 <div class="container">
   <div class="header">
     <div class="picture" [style.border-color]="'#'+unicorn.color">
@@ -14,13 +17,16 @@
     </div>
   </div>
   <div class="body">
-    <div *ngIf="hasParents" class="parents">
+    <div class="parents">
       <h2 class="title">Parents</h2>
-      <ul class="parent-list">
-        <li *ngFor="let parent of parents">
-          <app-card [unicorn]="parent"></app-card>
-        </li>
-      </ul>
+      <p *ngIf="!hasParents; else parentList">Its parents are from another herd.</p>
+      <ng-template #parentList>
+        <ul class="parent-list">
+          <li *ngFor="let parent of parents">
+            <app-card [unicorn]="parent"></app-card>
+          </li>
+        </ul>
+      </ng-template>
     </div>
   </div>
 </div>
