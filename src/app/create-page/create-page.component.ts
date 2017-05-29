@@ -13,7 +13,7 @@ export class CreatePageComponent implements OnInit {
   name = '';
   color = '';
   gender = '';
-  age = 1;
+  age = 0;
   error = {
     name: false,
     color: false,
