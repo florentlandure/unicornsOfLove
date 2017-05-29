@@ -3,9 +3,11 @@
     <h1 class="title">
       <a routerLink="/">{{title}}</a>
     </h1>
-    <a *ngFor="let m of menu" routerLink="{{m.path}}" routerLinkActive="active" class="menu-link" [routerLinkActiveOptions]="{ exact: true }">
-      <img src="../assets/images/{{m.logo}}.svg"><span class="menu-text">{{m.text}}</span>
-    </a>
+    <div class="menu-nav">
+      <a *ngFor="let m of menu" routerLink="{{m.path}}" routerLinkActive="active" class="menu-link" [routerLinkActiveOptions]="{ exact: true }">
+        <img src="../assets/images/{{m.logo}}.svg"><span class="menu-text">{{m.text}}</span>
+      </a>
+    </div>
     <!-- Floating action button -->
     <a routerLink="/create" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="fab"><img src="../assets/images/plus.svg"></a>
   </nav>

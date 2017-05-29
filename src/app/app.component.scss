@@ -7,14 +7,20 @@
   flex: 1;
   height: 100vh;
   overflow-y: auto;
+  @media (max-width: 736px) {
+    height: 100%;
+    padding-top: 47px;
+    padding-bottom: 72px;
+  }
 }
 .main-menu {
   color: white;
   background: $main-pink;
   width: 280px;
   height: 100vh;
+  position: relative;
   // Menu Link
-  &>.menu-link {
+  & .menu-link {
     display: flex;
     align-items: center;
     padding: 14px 20px;
@@ -33,6 +39,33 @@
   &>.title {
     text-align: center;
     color: white;
+  }
+  @media (max-width: 736px) {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    background: none;
+    &>.title {
+      background: $main-pink;
+      margin: 0;
+    }
+    &>.menu-nav {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: $main-pink;
+      & .menu-link {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+      & .menu-text {
+        display: none;
+      }
+    }
   }
 }
 .menu-text {

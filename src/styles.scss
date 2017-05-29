@@ -63,4 +63,8 @@ a {
   &.active {
     display: none;
   }
+  @media (max-width: 736px) {
+    bottom: 62px;
+    right: 10px;
+  }
 }
