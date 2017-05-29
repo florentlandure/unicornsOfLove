@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'Unicorns of Love';
   menu = [{
     logo: 'home',
-    text: 'Home',
+    text: 'Your herd',
     path: '/'
   }, {
     logo: 'heart',
