@@ -46,23 +46,22 @@ export class MatingPageComponent implements OnInit {
   }
 
   mate() {
-    // Child attributes
-    const childName = this.unicornOne.name + '-' + this.unicornTwo.name;
-    const childAge = 1;
-    const childGender = this.randomGender();
-    const childColor = this.colorBlender.blend_colors('#' + this.unicornOne.color, '#' + this.unicornTwo.color);
-    const childParents = [this.unicornOne, this.unicornTwo];
+    if (this.unicornOne.gender !== 'O' && this.unicornTwo.gender !== 'O' && this.unicornOne.gender !== this.unicornTwo.gender) {
+      // Child attributes
+      const childName = this.unicornOne.name + '-' + this.unicornTwo.name;
+      const childAge = 1;
+      const childGender = this.randomGender();
+      const childColor = this.colorBlender.blend_colors('#' + this.unicornOne.color, '#' + this.unicornTwo.color);
+      const childParents = [this.unicornOne, this.unicornTwo];
 
-    // Create the new child from those attributes
-    this.unicornService.create(new Unicorn(childName, childColor, childGender, childAge, childParents));
+      // Create the new child from those attributes
+      this.unicornService.create(new Unicorn(childName, childColor, childGender, childAge, childParents));
 
-    // Update parents hasChild attribute
-    this.unicornService.unicorns[this.unicornOne.id].hasChild = true;
-    this.unicornService.unicorns[this.unicornTwo.id].hasChild = true;
-    this.unicornService.saveLocalStorage();
-
-    // Redirect to home page
-    this.router.navigateByUrl('/');
+      // Update parents hasChild attribute
+      this.unicornService.unicorns[this.unicornOne.id].hasChild = true;
+      this.unicornService.unicorns[this.unicornTwo.id].hasChild = true;
+      this.unicornService.saveLocalStorage();
+    }
   }
 
   randomGender() {
