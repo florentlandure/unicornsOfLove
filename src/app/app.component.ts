@@ -18,6 +18,6 @@ export class AppComponent {
   }, {
     logo: 'info',
     text: 'Documentation',
-    path: '/info'
+    path: '/documentation'
   }];
 }
