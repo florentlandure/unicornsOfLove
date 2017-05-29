@@ -28,7 +28,11 @@ export class MatingPageComponent implements OnInit {
     if (!this.noUnicorn) {
       this.unicornOne = this.unicorns[0];
       this.unicornsLeft = this.unicornService.getOppositeGender(this.unicornOne);
-      this.unicornTwo = this.unicornsLeft[0];
+      if (this.unicornsLeft.length > 1) {
+        this.unicornTwo = this.unicornsLeft[0];
+      } else {
+        this.noUnicorn = true;
+      }
     }
   }
   selectOne(id: number) {
