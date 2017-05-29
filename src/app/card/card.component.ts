@@ -11,6 +11,7 @@ export class CardComponent implements OnInit {
   @Input() showActions: boolean;
   @Input() index: number;
   @Output() delete: EventEmitter<number> = new EventEmitter<number>();
+  actionActive = false;
 
   constructor() { }
 
