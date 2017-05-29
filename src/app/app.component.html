@@ -1,12 +1,15 @@
-<div class="wrapper">
+<div class="flex-wrapper">
   <nav class="main-menu">
     <h1 class="title">
       <a routerLink="/">{{title}}</a>
     </h1>
-    <a routerLink="/create" class="button">Create unicorn</a>
-    <a routerLink="/mate" class="button">Mate 2 unicorns</a>
+    <a *ngFor="let m of menu" routerLink="{{m.path}}" routerLinkActive="active" class="menu-link" [routerLinkActiveOptions]="{ exact: true }">
+      <img src="../assets/images/{{m.logo}}.svg"><span class="menu-text">{{m.text}}</span>
+    </a>
+    <!-- Floating action button -->
+    <a routerLink="/create" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="fab"><img src="../assets/images/plus.svg"></a>
   </nav>
-  <div class="">
+  <div class="wrapper">
     <router-outlet></router-outlet>
   </div>
 </div>

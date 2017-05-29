@@ -6,8 +6,9 @@
   flex-wrap: wrap;
   align-items: baseline;
   &>li {
-    width: 20%;
-    min-width: 260px;
+    width: 25%;
+    min-width: 250px;
     padding: 20px;
+    box-sizing: border-box;
   }
 }

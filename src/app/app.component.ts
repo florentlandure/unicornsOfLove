@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Unicorns of Love';
+  menu = [{
+    logo: 'home',
+    text: 'Home',
+    path: '/'
+  }, {
+    logo: 'heart',
+    text: 'Spread the love',
+    path: '/mate'
+  }, {
+    logo: 'info',
+    text: 'Documentation',
+    path: '/info'
+  }];
 }
