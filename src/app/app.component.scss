@@ -7,7 +7,7 @@
   flex: 1;
   height: 100vh;
   overflow-y: auto;
-  @media (max-width: 736px) {
+  @media (max-width: 768px) {
     height: 100%;
     padding-top: 47px;
     padding-bottom: 72px;
@@ -40,7 +40,7 @@
     text-align: center;
     color: white;
   }
-  @media (max-width: 736px) {
+  @media (max-width: 768px) {
     position: fixed;
     z-index: 999;
     width: 100%;
