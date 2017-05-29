@@ -39,3 +39,27 @@ a {
   margin-bottom: 0;
   font-size: 2.5rem;
 }
+.fab {
+  background: $main-pink;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  transition: transform 0.4s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
+  &>img {
+    width: 22px;
+  }
+  &.active {
+    display: none;
+  }
+}

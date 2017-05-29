@@ -22,9 +22,11 @@
   top: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  &:hover {
-    color: $main-pink;
+  &:hover>img {
     animation: heartbeat 1.2s infinite;
+  }
+  &>img {
+    width: 80px;
   }
   &:after {
     content: "Mate";
@@ -33,7 +35,7 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -24px);
     color: white;
   }
 }
