@@ -17,6 +17,14 @@ export class UnicornService {
   }
 
   delete(id: number) {
+    // Parents can have a child again if it is deleted
+    const parents = this.unicorns[id].parents;
+    if (parents.length > 0) {
+      parents.forEach(p => {
+        this.unicorns[p.id].hasChild = false;
+      });
+    }
+    // Remove unicorn from the array
     this.unicorns.splice(id, 1);
     this.saveLocalStorage();
   }
