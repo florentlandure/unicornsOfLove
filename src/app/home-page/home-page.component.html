@@ -1,7 +1,3 @@
-<nav>
-  <a routerLink="/create" class="button">Create unicorn</a>
-  <a routerLink="/mate" class="button">Mate 2 unicorns</a>
-</nav>
 <ul class="unicorn-list">
   <h3 *ngIf="noUnicorn">All unicorns are gone...</h3>
   <li *ngFor="let unicorn of unicorns; let i = index">

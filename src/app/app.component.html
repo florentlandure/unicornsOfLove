@@ -1,6 +1,12 @@
 <div class="wrapper">
-  <h1 class="title">
-    <a routerLink="/">{{title}}</a>
-  </h1>
-  <router-outlet></router-outlet>
+  <nav class="main-menu">
+    <h1 class="title">
+      <a routerLink="/">{{title}}</a>
+    </h1>
+    <a routerLink="/create" class="button">Create unicorn</a>
+    <a routerLink="/mate" class="button">Mate 2 unicorns</a>
+  </nav>
+  <div class="">
+    <router-outlet></router-outlet>
+  </div>
 </div>
