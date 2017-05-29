@@ -1,8 +1,7 @@
 <h1 class="head-title">Mate two unicorns</h1>
-<h3 *ngIf="noUnicorn; else mateUnicorns" class="noUnicorn">You don't have enough eligible unicorns.</h3>
+<p *ngIf="noUnicorn; else mateUnicorns" class="wrap">You don't have enough eligible unicorns.</p>
 <ng-template #mateUnicorns>
   <div class="template-wrap">
-
     <div class="container">
       <div>
         <select #uniOne (change)="selectOne(uniOne.value)">
@@ -18,5 +17,10 @@
       </div>
     </div>
     <div class="mate-button" (click)="mate()"><img src="../../assets/images/heart-pink.svg"></div>
+  </div>
+  <h2 *ngIf="haveMated" class="title love-in-air"><span class="fa fa-heart"></span> Love is in the air ! <span class="fa fa-heart"></span></h2>
+  <div *ngIf="unicornChild!=null" class="wrap">
+    <p>Your unicorns just got a baby !</p>
+    <app-card [unicorn]="unicornChild" [showActions]="false"></app-card>
   </div>
 </ng-template>

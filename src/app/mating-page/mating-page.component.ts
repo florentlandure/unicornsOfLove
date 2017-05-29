@@ -15,9 +15,11 @@ export class MatingPageComponent implements OnInit {
   unicornsLeft: Unicorn[]; // Array of unicorns left to select
   unicornOne: Unicorn; // First unicorn selected for mating
   unicornTwo: Unicorn; // Second unicorn selected for mating
+  unicornChild: Unicorn = null; // Possible child
   unicornOneSelected = false; // Is unicorn one selected ?
   noUnicorn: boolean; // Is the array of unicorns empty ?
   colorBlender: ColorBlender = new ColorBlender();
+  haveMated = false;
 
   constructor(private unicornService: UnicornService, private router: Router) { }
 
@@ -46,21 +48,26 @@ export class MatingPageComponent implements OnInit {
   }
 
   mate() {
+    this.haveMated = true;
     if (this.unicornOne.gender !== 'O' && this.unicornTwo.gender !== 'O' && this.unicornOne.gender !== this.unicornTwo.gender) {
-      // Child attributes
-      const childName = this.unicornOne.name + '-' + this.unicornTwo.name;
-      const childAge = 1;
-      const childGender = this.randomGender();
-      const childColor = this.colorBlender.blend_colors('#' + this.unicornOne.color, '#' + this.unicornTwo.color);
-      const childParents = [this.unicornOne, this.unicornTwo];
+      if (!this.unicornOne.hasChild && !this.unicornTwo.hasChild) {
+        // Child attributes
+        const childName = this.unicornOne.name + '-' + this.unicornTwo.name;
+        const childAge = 1;
+        const childGender = this.randomGender();
+        const childColor = this.colorBlender.blend_colors('#' + this.unicornOne.color, '#' + this.unicornTwo.color);
+        const childParents = [this.unicornOne, this.unicornTwo];
 
-      // Create the new child from those attributes
-      this.unicornService.create(new Unicorn(childName, childColor, childGender, childAge, childParents));
+        this.unicornChild = new Unicorn(childName, childColor, childGender, childAge, childParents);
 
-      // Update parents hasChild attribute
-      this.unicornService.unicorns[this.unicornOne.id].hasChild = true;
-      this.unicornService.unicorns[this.unicornTwo.id].hasChild = true;
-      this.unicornService.saveLocalStorage();
+        // Create the new child from those attributes
+        this.unicornService.create(this.unicornChild);
+
+        // Update parents hasChild attribute
+        this.unicornService.unicorns[this.unicornOne.id].hasChild = true;
+        this.unicornService.unicorns[this.unicornTwo.id].hasChild = true;
+        this.unicornService.saveLocalStorage();
+      }
     }
   }
 

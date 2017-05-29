@@ -33,7 +33,7 @@ export class UnicornService {
   getMatableUnicorns() {
     const arr: Unicorn[] = [];
     this.unicorns.forEach(u => {
-      if (u.age >= 9 && !u.hasChild) {
+      if (u.age >= 9) {
         arr.push(u);
       }
     });
