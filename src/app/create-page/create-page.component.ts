@@ -34,17 +34,25 @@ export class CreatePageComponent implements OnInit {
       // Redirect to home page
       this.router.navigateByUrl('/');
     } else {
-      if(this.name.trim() === '') {
+      if (this.name.trim() === '') {
         this.error.name = true;
+      } else {
+        this.error.name = false;
       }
-      if(this.color.trim() === '') {
+      if (this.color.trim() === '') {
         this.error.color = true;
+      } else {
+        this.error.color = false;
       }
-      if(this.gender.trim() === '') {
+      if (this.gender.trim() === '') {
         this.error.gender = true;
+      } else {
+        this.error.gender = false;
       }
-      if(this.age < 1) {
+      if (this.age < 1) {
         this.error.age = true;
+      } else {
+        this.error.age = false;
       }
     }
   }
