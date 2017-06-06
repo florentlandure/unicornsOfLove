@@ -43,11 +43,12 @@
   @media (max-width: 768px) {
     position: fixed;
     z-index: 999;
-    width: 100%;
+    width: 0;
     background: none;
     &>.title {
       background: $main-pink;
       margin: 0;
+      width: 100vw;
     }
     &>.menu-nav {
       display: flex;
@@ -55,7 +56,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 100%;
+      width: 100vw;
       background: $main-pink;
       & .menu-link {
         flex: 1;
